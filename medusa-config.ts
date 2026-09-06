@@ -67,7 +67,9 @@ module.exports = defineConfig({
     redisUrl,
     workerMode: process.env.MEDUSA_WORKER_MODE as 'shared' | 'server' | 'worker',
     http: {
-      storeCors: process.env.STORE_CORS!,
+      // Defaults keep local dev and zero-config deploys working; set STORE_CORS
+      // to your storefront origin(s) in production.
+      storeCors: process.env.STORE_CORS || 'http://localhost:3000,http://localhost:8000',
       adminCors: process.env.ADMIN_CORS!,
       authCors: process.env.AUTH_CORS!,
       jwtSecret: process.env.JWT_SECRET,
