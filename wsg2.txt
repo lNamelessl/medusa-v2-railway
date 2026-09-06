@@ -1,0 +1,1 @@
+query { workspace(workspaceId: "2347d9c3-1263-451c-ac4a-bb5d8428c8e5") { projects { edges { node { id name } } } } }

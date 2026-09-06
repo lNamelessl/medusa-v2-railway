@@ -69,8 +69,8 @@ Set automatically by the template (reference variables — don't hardcode):
 | `REDIS_URL` | `${{Redis.REDIS_URL}}` | `${{Redis.REDIS_URL}}` | `family=0` appended automatically |
 | `JWT_SECRET` / `COOKIE_SECRET` | generated | generated | required in production |
 | `MEDUSA_WORKER_MODE` | `server` | `worker` | |
-| `DISABLE_MEDUSA_ADMIN` | `false` | `true` | admin built/owned by server |
-| `MIGRATE_ON_BOOT` | `true` | `false` | server owns schema changes |
+| `DISABLE_MEDUSA_ADMIN` | derived | derived | defaults to `true` on worker, `false` otherwise |
+| `MIGRATE_ON_BOOT` | `true` | skipped | worker never migrates (derived from mode) |
 
 Set by you (configurable at deploy time):
 

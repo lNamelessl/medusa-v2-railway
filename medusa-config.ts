@@ -77,7 +77,11 @@ module.exports = defineConfig({
     },
   },
   admin: {
-    disable: process.env.DISABLE_MEDUSA_ADMIN === 'true',
+    // The worker never serves or builds the admin. DISABLE_MEDUSA_ADMIN wins
+    // when set; otherwise it is derived from MEDUSA_WORKER_MODE.
+    disable: process.env.DISABLE_MEDUSA_ADMIN
+      ? process.env.DISABLE_MEDUSA_ADMIN === 'true'
+      : process.env.MEDUSA_WORKER_MODE === 'worker',
     backendUrl: process.env.MEDUSA_BACKEND_URL || undefined,
   },
   modules: redisModules,
