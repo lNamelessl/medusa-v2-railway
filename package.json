@@ -1,0 +1,58 @@
+{
+  "name": "medusa-railway",
+  "version": "1.0.0",
+  "description": "Medusa v2 (server + worker) production template for Railway",
+  "author": "Medusa (https://medusajs.com)",
+  "license": "MIT",
+  "keywords": [
+    "medusa",
+    "railway",
+    "postgres",
+    "redis",
+    "typescript",
+    "ecommerce",
+    "headless",
+    "worker"
+  ],
+  "scripts": {
+    "build": "medusa build",
+    "start": "medusa start",
+    "dev": "medusa develop",
+    "lint": "medusa lint",
+    "predeploy": "medusa db:migrate",
+    "seed": "medusa seed ./src/migration-scripts/initial-data-seed.ts"
+  },
+  "dependencies": {
+    "@medusajs/admin-sdk": "2.20.1",
+    "@medusajs/admin-shared": "2.20.1",
+    "@medusajs/caching": "2.20.1",
+    "@medusajs/caching-redis": "2.20.1",
+    "@medusajs/cli": "2.20.1",
+    "@medusajs/dashboard": "2.20.1",
+    "@medusajs/draft-order": "2.20.1",
+    "@medusajs/framework": "2.20.1",
+    "@medusajs/medusa": "2.20.1",
+    "@medusajs/ui": "4.2.3",
+    "@tanstack/react-query": "5.64.2",
+    "react-i18next": "13.5.0",
+    "react-router-dom": "7.18.2",
+    "zod": "4.2.0"
+  },
+  "devDependencies": {
+    "@medusajs/test-utils": "2.20.1",
+    "@swc/core": "^1.7.28",
+    "@types/node": "^20.12.11",
+    "@types/react": "^18.3.2",
+    "@types/react-dom": "^18.2.25",
+    "prop-types": "^15.8.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.6.2",
+    "vite": "^7.3.6"
+  },
+  "engines": {
+    "node": "^20.19.0 || >=22.12.0"
+  },
+  "packageManager": "npm@11.11.1"
+}

@@ -1,0 +1,13 @@
+node_modules
+.medusa
+.env
+.env.*
+!.env.template
+.git
+.gitignore
+*.md
+!README.md
+integration-tests
+/public
+/uploads
+.DS_Store
