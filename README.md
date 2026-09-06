@@ -148,7 +148,9 @@ npm run build && npm run predeploy && npm run start   # production build locally
 
 ## Deploy
 
-Click the button on the template page, set the admin email/password when prompted, and you're done. Everything else (secrets, service references, domains, healthchecks) is pre-wired.
+[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/deploy/medusa-v2)
+
+Click the button and you're done — no deploy-form questions. Secrets are auto-generated, services are referenced automatically, and migrations run on boot. After deploying, grab the auto-generated admin password from `medusa-server` → **Variables** → `MEDUSA_ADMIN_PASSWORD` and log in at `/app`.
 
 ---
 
