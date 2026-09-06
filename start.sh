@@ -9,7 +9,18 @@
 #   4. serve        (medusa start)
 set -e
 
-MODE="${MEDUSA_WORKER_MODE:-shared}"
+# Worker mode: explicit MEDUSA_WORKER_MODE wins; otherwise derive from the
+# Railway service name (…worker… -> worker, …server… -> server, else shared)
+# so the template needs no deploy-time input.
+MODE="${MEDUSA_WORKER_MODE:-}"
+if [ -z "$MODE" ]; then
+  case "${RAILWAY_SERVICE_NAME:-}" in
+    *worker*) MODE="worker" ;;
+    *server*) MODE="server" ;;
+    *) MODE="shared" ;;
+  esac
+fi
+export MEDUSA_WORKER_MODE="$MODE"
 cd /app/.medusa/server
 
 echo "[start] worker mode: ${MODE}"
