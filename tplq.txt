@@ -1,1 +1,0 @@
-query { template(id: "7b47e0cd-ec98-416f-b227-bcb7d9078564") { code name status serializedConfig } }
